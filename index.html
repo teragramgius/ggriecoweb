@@ -34,11 +34,15 @@
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     padding: 1.2rem 3rem;
     background: rgba(245,242,236,0.92);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--rule);
+    gap: 1.5rem;
   }
   nav .logo {
     font-family: 'Space Mono', monospace;
@@ -46,8 +50,18 @@
     letter-spacing: .12em;
     color: var(--navy);
     text-transform: uppercase;
+    flex-shrink: 0;
   }
-  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    flex: 1;
+    justify-content: center;
+    margin: 0; padding: 0;
+  }
   nav ul a {
     text-decoration: none;
     font-size: .78rem;
@@ -55,8 +69,94 @@
     text-transform: uppercase;
     color: var(--mid);
     transition: color .2s;
+    white-space: nowrap;
   }
   nav ul a:hover { color: var(--accent); }
+  .nav-extras {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+  .lang-toggle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .2rem;
+  }
+  .lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    font-size: .68rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    padding: .15rem .3rem;
+    transition: color .2s;
+    line-height: 1;
+  }
+  .lang-btn.active {
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+  }
+  .lang-btn:hover { color: var(--accent); }
+  .lang-sep { color: #ccc; font-size: .7rem; line-height: 1; }
+  .gh-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mid);
+    transition: color .2s;
+    text-decoration: none;
+    line-height: 1;
+  }
+  .gh-link:hover { color: var(--accent); }
+  .gh-link svg { width: 16px; height: 16px; display: block; }
+
+  /* lang toggle + github */
+  .nav-extras {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-shrink: 0;
+  }
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+  }
+  .lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    font-size: .68rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    padding: .1rem .25rem;
+    transition: color .2s;
+  }
+  .lang-btn.active {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .lang-btn:hover { color: var(--accent); }
+  .lang-sep { color: var(--rule); font-size: .75rem; }
+  .gh-link {
+    display: flex;
+    align-items: center;
+    color: var(--mid);
+    transition: color .2s;
+    text-decoration: none;
+    line-height: 1;
+  }
+  .gh-link:hover { color: var(--accent); }
+  .gh-link svg { width: 17px; height: 17px; display: block; }
 
   /* ── HERO ── */
   .hero {
@@ -446,6 +546,7 @@
     .hero-right { padding: 3rem 2rem; }
     nav { padding: 1rem 1.5rem; }
     nav ul { display: none; }
+    .nav-extras { gap: .8rem; }
     section { padding: 4rem 1.5rem; }
     .manifesto-grid { grid-template-columns: 1fr; }
     .manifesto-block { border-right: none !important; }
@@ -462,14 +563,26 @@
 <!-- NAV -->
 <nav>
   <span class="logo">Giusy Grieco</span>
-  <ul>
-    <li><a href="#manifesto">Visione</a></li>
-    <li><a href="#projects">Progetti</a></li>
-    <li><a href="#awards">Riconoscimenti</a></li>
-    <li><a href="#cv">Esperienza</a></li>
-    <li><a href="#workshops">Workshop</a></li>
-    <li><a href="mailto:giusygrieco@proton.me">Contatti</a></li>
+  <ul id="nav-links">
+    <li><a href="#manifesto" data-it="Visione" data-en="Vision">Visione</a></li>
+    <li><a href="#projects" data-it="Progetti" data-en="Projects">Progetti</a></li>
+    <li><a href="#awards" data-it="Riconoscimenti" data-en="Awards">Riconoscimenti</a></li>
+    <li><a href="#cv" data-it="Esperienza" data-en="Experience">Esperienza</a></li>
+    <li><a href="#workshops" data-it="Workshop" data-en="Workshop">Workshop</a></li>
+    <li><a href="mailto:giusygrieco@proton.me" data-it="Contatti" data-en="Contact">Contatti</a></li>
   </ul>
+  <div class="nav-extras">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-it" onclick="setLang('it')">IT</button>
+      <span class="lang-sep">/</span>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="https://github.com/teragramgius" target="_blank" class="gh-link" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.929.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+      </svg>
+    </a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -581,11 +694,11 @@
       </div>
     </div>
 
-    <!-- KCITY -->
+    <!-- EU INNOVATION -->
     <div class="project-card">
       <div class="project-left">
         <p class="project-tag">EU Innovation · Policy</p>
-        <h3 class="project-name">KCity — Horizon EU Proposals</h3>
+        <h3 class="project-name">Horizon EU Proposals<br>Consulting</h3>
         <p class="project-period">2023 – 2024 — Milano</p>
       </div>
       <div class="project-right">
@@ -660,7 +773,7 @@
     <div class="award-card">
       <div class="award-icon">📚</div>
       <h3 class="award-title">BBS School — Events & Programme</h3>
-      <p class="award-body">Partecipazione agli eventi della BBS School, contesto di formazione avanzata e networking internazionale per profili ad alto potenziale in ambito innovazione e management.</p>
+      <p class="award-body">Partecipazione agli eventi e al programma formativo della BBS School, contesto di formazione avanzata e networking internazionale per profili ad alto potenziale in ambito innovazione e management.</p>
     </div>
   </div>
 </section>
@@ -849,13 +962,53 @@
   <span class="footer-name">Giusy Grieco</span>
   <div class="footer-links">
     <a href="mailto:giusygrieco@proton.me">Email</a>
-    <a href="https://zenodo.org/records/17909495" target="_blank">Zenodo</a>
+    <a href="https://doi.org/10.5281/zenodo.17909495" target="_blank">Zenodo</a>
     <a href="https://kaleidosproject.eu" target="_blank">KALEIDOS</a>
-    <a href="https://www.linkedin.com/in/giusy-grieco-101612202/" target="_blank">LinkedIn</a>
+    <a href="https://linkedin.com/in/giusygrieco" target="_blank">LinkedIn</a>
+    <a href="https://github.com/teragramgius" target="_blank">GitHub</a>
   </div>
 </footer>
 
 <script>
+// ── LANGUAGE TOGGLE ──
+const i18n = {
+  it: {
+    nav: { manifesto:'Visione', projects:'Progetti', awards:'Riconoscimenti', cv:'Esperienza', workshops:'Workshop', contact:'Contatti' },
+    hero_bio: "Costruisco ponti tra la frontiera tecnologica e le persone che devono usarla. Traduco trend AI in architetture di progetto finanziabili, coordino consorzi europei e guido team nell'adozione di strumenti intelligenti — con rigore metodologico e attenzione all'impatto reale.",
+    sections: { s01:'Come lavoro', s02:'Progetti', s03:'Riconoscimenti', s04:'Esperienza', s05:'Competenze', s06:'Certificazioni', s07:'Workshop & Facilitation' },
+    workshop_cta: 'Organizzi eventi, conferenze o sessioni formative?',
+    workshop_sub: 'I workshop sono disponibili su richiesta.',
+    workshop_btn: '↗ Scrivimi',
+  },
+  en: {
+    nav: { manifesto:'Vision', projects:'Projects', awards:'Awards', cv:'Experience', workshops:'Workshop', contact:'Contact' },
+    hero_bio: 'I build bridges between the technology frontier and the people who need to use it. I translate AI trends into fundable project architectures, coordinate European consortia, and guide teams in adopting intelligent tools — with methodological rigour and a focus on real impact.',
+    sections: { s01:'How I work', s02:'Projects', s03:'Awards & Recognition', s04:'Experience', s05:'Skills', s06:'Certifications', s07:'Workshops & Facilitation' },
+    workshop_cta: 'Planning an event, conference, or training session?',
+    workshop_sub: 'Workshops available on request.',
+    workshop_btn: '↗ Get in touch',
+  }
+};
+
+function setLang(lang) {
+  const t = i18n[lang];
+  // buttons
+  document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.documentElement.lang = lang;
+  // nav links
+  const navLinks = document.querySelectorAll('#nav-links a');
+  const navKeys = ['manifesto','projects','awards','cv','workshops','contact'];
+  navLinks.forEach((a, i) => { if (navKeys[i]) a.textContent = t.nav[navKeys[i]]; });
+  // hero bio
+  const bio = document.querySelector('.hero-bio');
+  if (bio) bio.textContent = t.hero_bio;
+  // section titles
+  const titles = document.querySelectorAll('.section-title');
+  const skeys = ['s01','s02','s03','s04','s05','s06','s07'];
+  titles.forEach((el, i) => { if (skeys[i] && t.sections[skeys[i]]) el.textContent = t.sections[skeys[i]]; });
+}
+
 // Scroll-triggered reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
