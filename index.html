@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giusy Grieco — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e0e0e;
+    --paper: #f5f2ec;
+    --navy: #1a3c5e;
+    --navy-mid: #2a6099;
+    --accent: #c8522a;
+    --accent-light: #f0e8e3;
+    --mid: #888;
+    --rule: #d4cfc6;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(245,242,236,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav .logo {
+    font-family: 'Space Mono', monospace;
+    font-size: .75rem;
+    letter-spacing: .12em;
+    color: var(--navy);
+    text-transform: uppercase;
+  }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav ul a {
+    text-decoration: none;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--mid);
+    transition: color .2s;
+  }
+  nav ul a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem 5rem 3rem;
+    border-right: 1px solid var(--rule);
+  }
+  .hero-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    line-height: 1.0;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-bio {
+    font-size: 1.05rem;
+    color: #444;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    line-height: 1.75;
+  }
+  .hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .hero-meta span {
+    font-family: 'Space Mono', monospace;
+    font-size: .72rem;
+    color: var(--mid);
+    letter-spacing: .05em;
+  }
+  .hero-meta a {
+    color: var(--navy-mid);
+    text-decoration: none;
+  }
+  .hero-meta a:hover { text-decoration: underline; }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3rem 4rem 4rem;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: rgba(200,82,42,0.12);
+    pointer-events: none;
+  }
+  .video-label {
+    font-family: 'Space Mono', monospace;
+    font-size: .68rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1rem;
+  }
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  }
+  .video-wrap iframe {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .video-caption {
+    margin-top: 1.2rem;
+    font-size: .82rem;
+    color: rgba(255,255,255,0.5);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* ── SECTION SHELL ── */
+  section { padding: 6rem 3rem; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .section-num {
+    font-family: 'Space Mono', monospace;
+    font-size: .7rem;
+    color: var(--accent);
+    letter-spacing: .1em;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--navy);
+  }
+
+  /* ── MANIFESTO ── */
+  .manifesto { background: var(--navy); color: var(--paper); }
+  .manifesto .section-title { color: var(--paper); }
+  .manifesto .section-num { color: var(--accent); }
+  .manifesto .section-header { border-color: rgba(255,255,255,0.15); }
+
+  .manifesto-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+  .manifesto-block {
+    padding: 2.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-right: 1px solid rgba(255,255,255,0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .manifesto-block.visible { opacity: 1; transform: translateY(0); }
+  .manifesto-block:nth-child(even) { border-right: none; }
+  .manifesto-block:nth-last-child(-n+2) { border-bottom: none; }
+  .manifesto-claim {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: .8rem;
+    line-height: 1.2;
+  }
+  .manifesto-claim em { color: var(--accent); font-style: italic; }
+  .manifesto-body {
+    font-size: .9rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .project-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border-top: 1px solid var(--rule);
+    padding: 2.5rem 0;
+    gap: 3rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .project-card.visible { opacity: 1; transform: translateX(0); }
+  .project-card:last-child { border-bottom: 1px solid var(--rule); }
+  .project-left {}
+  .project-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: .5rem;
+  }
+  .project-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: .5rem;
+  }
+  .project-period {
+    font-family: 'Space Mono', monospace;
+    font-size: .68rem;
+    color: var(--mid);
+  }
+  .project-right {}
+  .project-claim {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  .project-body {
+    font-size: .9rem;
+    color: #555;
+    line-height: 1.75;
+    margin-bottom: 1.2rem;
+  }
+  .project-body p { margin-bottom: .8rem; }
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-family: 'Space Mono', monospace;
+    font-size: .68rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--navy-mid);
+    text-decoration: none;
+    border-bottom: 1px solid var(--navy-mid);
+    padding-bottom: 2px;
+    transition: color .2s, border-color .2s;
+  }
+  .project-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ── AWARDS ── */
+  .awards { background: var(--accent-light); }
+  .awards-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .awards-list .award-card:nth-child(4),
+  .awards-list .award-card:nth-child(5) {
+    grid-column: auto;
+  }
+  .award-card {
+    background: var(--paper);
+    padding: 2.5rem;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .award-card.visible { opacity: 1; transform: translateY(0); }
+  .award-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .award-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--navy);
+    margin-bottom: .5rem;
+    line-height: 1.3;
+  }
+  .award-body {
+    font-size: .85rem;
+    color: #666;
+    line-height: 1.65;
+  }
+
+  /* ── CV STRIP ── */
+  .cv-strip {
+    background: var(--ink);
+    padding: 5rem 3rem;
+  }
+  .cv-strip .section-header { border-color: rgba(255,255,255,0.1); }
+  .cv-strip .section-title { color: white; }
+  .cv-strip .section-num { color: var(--accent); }
+
+  .cv-rows { display: flex; flex-direction: column; }
+  .cv-row {
+    display: grid;
+    grid-template-columns: 180px 1fr auto;
+    align-items: baseline;
+    gap: 2rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .4s ease, transform .4s ease;
+  }
+  .cv-row.visible { opacity: 1; transform: translateY(0); }
+  .cv-period {
+    font-family: 'Space Mono', monospace;
+    font-size: .68rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: .05em;
+  }
+  .cv-role {
+    font-size: .92rem;
+    color: rgba(255,255,255,0.85);
+  }
+  .cv-role strong {
+    color: white;
+    font-weight: 500;
+    display: block;
+    margin-bottom: .15rem;
+  }
+  .cv-org {
+    font-family: 'Space Mono', monospace;
+    font-size: .65rem;
+    color: var(--accent);
+    letter-spacing: .06em;
+    white-space: nowrap;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .skill-col {}
+  .skill-col-title {
+    font-family: 'Space Mono', monospace;
+    font-size: .68rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .skill-col ul { list-style: none; }
+  .skill-col ul li {
+    font-size: .85rem;
+    color: #555;
+    padding: .3rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 3rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--navy);
+  }
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+  }
+  .footer-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: .68rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ── SCROLL ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * {
+    opacity: 0;
+    animation: fadeUp .7s ease forwards;
+  }
+  .hero-left > *:nth-child(1) { animation-delay: .1s; }
+  .hero-left > *:nth-child(2) { animation-delay: .25s; }
+  .hero-left > *:nth-child(3) { animation-delay: .4s; }
+  .hero-left > *:nth-child(4) { animation-delay: .55s; }
+  .hero-right { opacity: 0; animation: fadeUp .8s ease .3s forwards; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { border-right: none; border-bottom: 1px solid var(--rule); padding: 4rem 2rem; }
+    .hero-right { padding: 3rem 2rem; }
+    nav { padding: 1rem 1.5rem; }
+    nav ul { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .manifesto-grid { grid-template-columns: 1fr; }
+    .manifesto-block { border-right: none !important; }
+    .project-card { grid-template-columns: 1fr; gap: 1rem; }
+    .awards-list { grid-template-columns: 1fr; gap: 2px; }
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .cv-row { grid-template-columns: 1fr; gap: .3rem; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="logo">Giusy Grieco</span>
+  <ul>
+    <li><a href="#manifesto">Visione</a></li>
+    <li><a href="#projects">Progetti</a></li>
+    <li><a href="#awards">Riconoscimenti</a></li>
+    <li><a href="#cv">Esperienza</a></li>
+    <li><a href="#workshops">Workshop</a></li>
+    <li><a href="mailto:giusygrieco@proton.me">Contatti</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-left">
+    <p class="hero-tag">Innovation Technology · EU Projects · AI Architecture</p>
+    <h1 class="hero-name">Giusy<br><em>Grieco</em></h1>
+    <p class="hero-bio">
+      Costruisco ponti tra la frontiera tecnologica e le persone che devono usarla. 
+      Traduco trend AI in architetture di progetto finanziabili, coordino consorzi 
+      europei e guido team nell'adozione di strumenti intelligenti — con rigore 
+      metodologico e attenzione all'impatto reale.
+    </p>
+    <div class="hero-meta">
+      <span>📍 Bologna, IT — disponibile remoto / ibrido</span>
+      <span>✉ <a href="mailto:giusygrieco@proton.me">giusygrieco@proton.me</a></span>
+      <span>📞 +39 339 618 7260</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <p class="video-label">Presentazione</p>
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/0U72u8hUrNc?si=ln-YDDy_8uyXTCVE&amp;start=89"
+        title="Giusy Grieco — Presentazione"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p class="video-caption">Chi sono, cosa faccio e perché mi interessa stare sempre un passo avanti.</p>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="manifesto">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Come lavoro</h2>
+  </div>
+  <div class="manifesto-grid">
+    <div class="manifesto-block">
+      <p class="manifesto-claim">Fare tanto <em>con poco</em>.</p>
+      <p class="manifesto-body">Non ho mai avuto bisogno di risorse infinite per produrre cose che funzionano. Arrangiarsi non è un ripiego — è una competenza. Significa saper leggere i vincoli, trovare la strada giusta nel mezzo del caos, e consegnare comunque. Sempre.</p>
+    </div>
+    <div class="manifesto-block">
+      <p class="manifesto-claim">Il ponte <em>sono io</em>.</p>
+      <p class="manifesto-body">Tra il ricercatore e l'istituzione. Tra il tecnico e il decisore. Tra il consorzio svedese e il partner bolognese. Parlo lingue diverse — non solo quelle sul CV — e uso questa capacità per far sì che le persone si capiscano davvero, non solo si tollerino.</p>
+    </div>
+    <div class="manifesto-block">
+      <p class="manifesto-claim">I dettagli <em>non sono dettagli</em>.</p>
+      <p class="manifesto-body">La cura è nella virgola messa al posto giusto, nel deliverable revisionato una volta in più, nella mail scritta in modo che l'altra persona si senta considerata. Precisione e affidabilità non sono tratti caratteriali — sono una scelta che rinnovo ogni giorno.</p>
+    </div>
+    <div class="manifesto-block">
+      <p class="manifesto-claim">Le persone lavorano meglio <em>quando stanno bene</em>.</p>
+      <p class="manifesto-body">L'ho visto in ogni progetto europeo in cui sono entrata: quando le persone si sentono ascoltate, i risultati migliorano. Tengo d'occhio il clima del gruppo tanto quanto i milestone. Non perché sia gentile — perché funziona.</p>
+    </div>
+    <div class="manifesto-block">
+      <p class="manifesto-claim">Rigore con <em>leggerezza</em>.</p>
+      <p class="manifesto-body">Si può essere precisi senza essere pesanti. Si può lavorare seriamente senza prendersi troppo sul serio. Porto cura estetica in ogni cosa che produco — un documento, una presentazione, un framework — perché la forma è già sostanza.</p>
+    </div>
+    <div class="manifesto-block">
+      <p class="manifesto-claim">Kawaii è un'<em>etica del lavoro</em>.</p>
+      <p class="manifesto-body">Attenzione al bello, cura per l'altro, niente arroganza. Entrare in un progetto con curiosità e apertura, non con la certezza di avere già tutte le risposte. Imparare in fretta. Restare umana.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="padding: 6rem 3rem;">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Progetti</h2>
+  </div>
+  <div class="projects-grid">
+
+    <!-- KALEIDOS -->
+    <div class="project-card">
+      <div class="project-left">
+        <p class="project-tag">Horizon Europe · Open Science</p>
+        <h3 class="project-name">KALEIDOS</h3>
+        <p class="project-period">2024 – 2025</p>
+      </div>
+      <div class="project-right">
+        <p class="project-claim">La ricerca produce conoscenza. Noi l'abbiamo resa utile.</p>
+        <div class="project-body">
+          <p>Le università europee generano ogni anno risultati scientifici straordinari. Eppure quella conoscenza fatica a raggiungere le imprese, i territori, le persone. KALEIDOS nasce per colmare questo divario — costruendo ponti tra il mondo della ricerca e il mondo reale attraverso un modello Quadruple Helix fondato sull'Open Science.</p>
+          <p>Ho coordinato il dialogo tra cinque partner in quattro paesi (Italia, Spagna, Svezia, Francia), garantendo che ogni voce trovasse spazio e ogni deliverable rispecchiasse una visione condivisa. Il risultato più tangibile è il <strong>D4.1 – Policy Guidelines Report</strong>: linee guida operative per università e istituzioni europee, disponibili in open access.</p>
+          <p>Il progresso non si misura solo in output. Si misura in ecosistemi che cambiano.</p>
+        </div>
+        <a href="https://doi.org/10.5281/zenodo.17909495" target="_blank" class="project-link">↗ Leggi il deliverable su Zenodo</a>
+        &nbsp;&nbsp;
+        <a href="https://kaleidosproject.eu" target="_blank" class="project-link">↗ Sito del progetto</a>
+      </div>
+    </div>
+
+    <!-- COMPUTER VISION -->
+    <div class="project-card">
+      <div class="project-left">
+        <p class="project-tag">AI · Computer Vision · Horizon</p>
+        <h3 class="project-name">AI & Computer Vision<br>Consulting</h3>
+        <p class="project-period">2024 — Roma</p>
+      </div>
+      <div class="project-right">
+        <p class="project-claim">Quando la macchina impara a vedere, qualcuno deve capire cosa guardare.</p>
+        <div class="project-body">
+          <p>Scouting e analisi di soluzioni di computer vision per applicazioni industriali: mappatura delle opportunità tecnologiche emergenti, traduzione in architetture AI ad alto livello e specifiche funzionali per proposal Horizon Europe.</p>
+          <p>Ho lavorato come ponte tra il team tecnico di sviluppo e gli stakeholder business — garantendo che il linguaggio della macchina diventasse il linguaggio del progetto.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- KCITY -->
+    <div class="project-card">
+      <div class="project-left">
+        <p class="project-tag">EU Innovation · Policy</p>
+        <h3 class="project-name">KCity — Horizon EU Proposals</h3>
+        <p class="project-period">2023 – 2024 — Milano</p>
+      </div>
+      <div class="project-right">
+        <p class="project-claim">Un'idea non diventa innovazione finché non trova la sua forma finanziabile.</p>
+        <div class="project-body">
+          <p>Consulenza strategica per la progettazione e scrittura di proposal su bandi Horizon Europe in ambito innovazione urbana e digitale. Traduzione di framework normativi europei in requisiti tecnici e operativi comprensibili per i partner di consorzio, produzione di deliverable e documentazione per stakeholder istituzionali italiani e internazionali.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- INHABIT -->
+    <div class="project-card">
+      <div class="project-left">
+        <p class="project-tag">Horizon Europe · Urban Innovation</p>
+        <h3 class="project-name">INHABIT — Information Architecture</h3>
+        <p class="project-period">2023 – 2024 — Berlin / Lucca</p>
+      </div>
+      <div class="project-right">
+        <p class="project-claim">Le città del futuro si costruiscono prima come architetture di informazione.</p>
+        <div class="project-body">
+          <p>Progettazione di architetture informative per sistemi di knowledge management AI-assisted in contesti istituzionali europei. Sintesi di framework politici complessi — open science, rigenerazione urbana — in action framework per stakeholder europei. Documentazione tecnica bilingue IT/EN per workshop su infrastrutture digitali.</p>
+        </div>
+        <a href="https://tesserae.berlin" target="_blank" class="project-link">↗ Tesserae Berlin</a>
+      </div>
+    </div>
+
+    <!-- NEVERHACK -->
+    <div class="project-card">
+      <div class="project-left">
+        <p class="project-tag">AI Governance · Cybersecurity · PMO</p>
+        <h3 class="project-name">Neverhack / Unipol Tech</h3>
+        <p class="project-period">2025 – 2026 — Milano / Bologna</p>
+      </div>
+      <div class="project-right">
+        <p class="project-claim">La governance dell'AI non è un vincolo. È il fondamento su cui costruire.</p>
+        <div class="project-body">
+          <p>Coordinamento della divisione IT Analytics in un contesto corporate complesso: integrazione di workflow AI-driven nei processi aziendali, supporto a iniziative di cybersecurity (framework NIS2), mobility analytics e data analysis per il team Unipol Tech. Dashboard Power BI e report analitici che trasformano dati complessi in indicazioni operative per la transformation governance.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="awards" id="awards">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Riconoscimenti</h2>
+  </div>
+  <div class="awards-list">
+    <div class="award-card">
+      <div class="award-icon">🎓</div>
+      <h3 class="award-title">Borsa di Studio — Hochschule Luzern</h3>
+      <p class="award-body">Borsa di studio internazionale per la tesi di laurea magistrale, conseguita presso la Hochschule Luzern (Svizzera). Un riconoscimento alla ricerca applicata all'intersezione tra design, dati e istituzioni europee.</p>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">⚛️</div>
+      <h3 class="award-title">Bootcamp Ricercatori — CERN, Ginevra</h3>
+      <p class="award-body">Selezionata per un programma bootcamp intensivo per ricercatori presso il CERN di Ginevra. Un'esperienza che ha consolidato la capacità di operare in ambienti ad altissima densità tecnica e interdisciplinare.</p>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🇪🇺</div>
+      <h3 class="award-title">Grant Agreement No. 101132079 — Horizon Europe</h3>
+      <p class="award-body">Co-autore e Project Manager del deliverable ufficiale D4.1 del progetto KALEIDOS, finanziato dall'Unione Europea nell'ambito di Horizon Europe. Pubblicato su Zenodo con DOI: <a href="https://doi.org/10.5281/zenodo.17909495" target="_blank" style="color:var(--navy-mid);">10.5281/zenodo.17909495</a></p>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🌿</div>
+      <h3 class="award-title">New European Bauhaus — Partecipazione</h3>
+      <p class="award-body">Selezionata per partecipare al New European Bauhaus, l'iniziativa della Commissione Europea che reimmagina il futuro degli spazi e delle società all'intersezione tra sostenibilità, inclusione e qualità estetica.</p>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">📚</div>
+      <h3 class="award-title">BBS School — Events & Programme</h3>
+      <p class="award-body">Partecipazione agli eventi della BBS School, contesto di formazione avanzata e networking internazionale per profili ad alto potenziale in ambito innovazione e management.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CV STRIP -->
+<section class="cv-strip" id="cv">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Esperienza</h2>
+  </div>
+  <div class="cv-rows">
+    <div class="cv-row">
+      <span class="cv-period">2025 – 2026</span>
+      <div class="cv-role"><strong>Data Analyst & PMO — AI Governance & Cybersecurity</strong>Neverhack Italy presso Unipol Tech · Milano / Bologna</div>
+      <span class="cv-org">Corporate</span>
+    </div>
+    <div class="cv-row">
+      <span class="cv-period">2024 – 2025</span>
+      <div class="cv-role"><strong>Innovation Project Manager & AI Use Case Architect</strong>KALEIDOS Horizon Europe · Bologna / Barcelona / Karlstad / Lorraine</div>
+      <span class="cv-org">Horizon EU</span>
+    </div>
+    <div class="cv-row">
+      <span class="cv-period">2024</span>
+      <div class="cv-role"><strong>AI & Computer Vision Consultant</strong>Stealth company · Roma</div>
+      <span class="cv-org">Consulting</span>
+    </div>
+    <div class="cv-row">
+      <span class="cv-period">2023 – 2024</span>
+      <div class="cv-role"><strong>EU Innovation Consultant — Horizon Proposals</strong>KCity · Milano</div>
+      <span class="cv-org">Consulting</span>
+    </div>
+    <div class="cv-row">
+      <span class="cv-period">2023 – 2024</span>
+      <div class="cv-role"><strong>Information Architect — AI-Assisted Knowledge Systems</strong>INHABIT Horizon Europe · Tesserae Berlin · Berlin / Lucca</div>
+      <span class="cv-org">Horizon EU</span>
+    </div>
+    <div class="cv-row">
+      <span class="cv-period">2021 – 2022</span>
+      <div class="cv-role"><strong>Product Manager — Strategic Communication</strong>PERCEIVE Horizon EU · Luzern, CH</div>
+      <span class="cv-org">Horizon EU</span>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div style="margin-top:4rem;">
+    <div class="section-header" style="border-color:rgba(255,255,255,0.1);">
+      <span class="section-num" style="color:var(--accent);">05</span>
+      <h2 class="section-title" style="color:white;">Competenze</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-col">
+        <p class="skill-col-title">AI & Innovazione</p>
+        <ul>
+          <li style="color:rgba(255,255,255,0.6)">Use case discovery & design</li>
+          <li style="color:rgba(255,255,255,0.6)">AI governance & risk alignment</li>
+          <li style="color:rgba(255,255,255,0.6)">Generative AI / LLMs / NLP</li>
+          <li style="color:rgba(255,255,255,0.6)">Computer Vision (applied)</li>
+          <li style="color:rgba(255,255,255,0.6)">Prompt engineering</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <p class="skill-col-title">EU Projects & Bandi</p>
+        <ul>
+          <li style="color:rgba(255,255,255,0.6)">Horizon Europe proposals</li>
+          <li style="color:rgba(255,255,255,0.6)">Work Package coordination</li>
+          <li style="color:rgba(255,255,255,0.6)">Consortium management</li>
+          <li style="color:rgba(255,255,255,0.6)">Policy-to-spec translation</li>
+          <li style="color:rgba(255,255,255,0.6)">Technical reporting</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <p class="skill-col-title">Tech & Analytics</p>
+        <ul>
+          <li style="color:rgba(255,255,255,0.6)">Python (NumPy, scikit-learn)</li>
+          <li style="color:rgba(255,255,255,0.6)">Power BI / data storytelling</li>
+          <li style="color:rgba(255,255,255,0.6)">Jira / Atlassian / ServiceNow</li>
+          <li style="color:rgba(255,255,255,0.6)">Microsoft Dynamics</li>
+          <li style="color:rgba(255,255,255,0.6)">Dashboard & KPI design</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <p class="skill-col-title">Lingue</p>
+        <ul>
+          <li style="color:rgba(255,255,255,0.6)">Italiano — madrelingua</li>
+          <li style="color:rgba(255,255,255,0.6)">Inglese — professionale</li>
+          <li style="color:rgba(255,255,255,0.6)">Spagnolo — colloquiale</li>
+          <li style="color:rgba(255,255,255,0.6)">Francese — colloquiale</li>
+          <li style="color:rgba(255,255,255,0.6)">Tedesco / Polacco — base</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div style="margin-top:4rem;">
+    <div class="section-header" style="border-color:rgba(255,255,255,0.1);">
+      <span class="section-num" style="color:var(--accent);">06</span>
+      <h2 class="section-title" style="color:white;">Certificazioni</h2>
+    </div>
+    <div class="cv-rows">
+      <div class="cv-row visible">
+        <span class="cv-period">Anthropic</span>
+        <div class="cv-role"><strong>Anthropic Academy</strong>Prompt Engineering & Claude AI</div>
+        <span class="cv-org">In corso</span>
+      </div>
+      <div class="cv-row visible">
+        <span class="cv-period">Google</span>
+        <div class="cv-role"><strong>Google AI Essentials</strong>Coursera / Google</div>
+        <span class="cv-org">In corso</span>
+      </div>
+      <div class="cv-row visible">
+        <span class="cv-period">Google</span>
+        <div class="cv-role"><strong>Generative AI Fundamentals</strong>Google Cloud Skills Boost</div>
+        <span class="cv-org">In corso</span>
+      </div>
+      <div class="cv-row visible">
+        <span class="cv-period">Google</span>
+        <div class="cv-role"><strong>Introduction to Responsible AI</strong>Google Cloud</div>
+        <span class="cv-org">In corso</span>
+      </div>
+      <div class="cv-row visible">
+        <span class="cv-period">Google</span>
+        <div class="cv-role"><strong>Introduction to Large Language Models</strong>Google Cloud</div>
+        <span class="cv-org">In corso</span>
+      </div>
+      <div class="cv-row visible">
+        <span class="cv-period">EU Commission</span>
+        <div class="cv-role"><strong>Digital Skills & Jobs Platform</strong>European Commission</div>
+        <span class="cv-org">In corso</span>
+      </div>
+      <div class="cv-row visible">
+        <span class="cv-period">Univ. Helsinki</span>
+        <div class="cv-role"><strong>Elements of AI</strong>University of Helsinki / MinnaLearn</div>
+        <span class="cv-org">In corso</span>
+      </div>
+      <div class="cv-row visible">
+        <span class="cv-period">Coursera</span>
+        <div class="cv-role"><strong>AI for Everyone</strong>DeepLearning.AI / Andrew Ng</div>
+        <span class="cv-org">In corso</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKSHOPS -->
+<section id="workshops" style="padding: 6rem 3rem; background: var(--accent-light);">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2 class="section-title">Workshop & Facilitation</h2>
+  </div>
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0;">
+
+    <div style="padding: 2.5rem; border-bottom: 1px solid var(--rule); border-right: 1px solid var(--rule);">
+      <p style="font-family:'Space Mono',monospace; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:.6rem;">Etica & Lavoro</p>
+      <h3 style="font-family:'DM Serif Display',serif; font-size:1.3rem; color:var(--navy); margin-bottom:.8rem; line-height:1.2;">AI Ethics at Work</h3>
+      <p style="font-size:.9rem; color:#555; line-height:1.75;">Workshop sull'etica dell'intelligenza artificiale in contesti lavorativi. Cosa significa introdurre strumenti AI in un'organizzazione — per chi decide, per chi li usa ogni giorno, e per chi ne subisce le conseguenze. Sessioni pratiche, non teoriche.</p>
+    </div>
+
+    <div style="padding: 2.5rem; border-bottom: 1px solid var(--rule);">
+      <p style="font-family:'Space Mono',monospace; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:.6rem;">Innovazione & Policy</p>
+      <h3 style="font-family:'DM Serif Display',serif; font-size:1.3rem; color:var(--navy); margin-bottom:.8rem; line-height:1.2;">AI & Policy Making</h3>
+      <p style="font-size:.9rem; color:#555; line-height:1.75;">Facilitazione per istituzioni, enti pubblici e team di ricerca che devono capire come l'AI cambia i processi decisionali e normativi. Traduzione di framework tecnici in linguaggio utilizzabile da chi fa policy.</p>
+    </div>
+
+    <div style="padding: 2.5rem; border-right: 1px solid var(--rule);">
+      <p style="font-family:'Space Mono',monospace; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:.6rem;">Metodo & Processo</p>
+      <h3 style="font-family:'DM Serif Display',serif; font-size:1.3rem; color:var(--navy); margin-bottom:.8rem; line-height:1.2;">Agile & Facilitation</h3>
+      <p style="font-size:.9rem; color:#555; line-height:1.75;">Facilitazione di team in contesti agili e multi-stakeholder. Retrospettive, sprint planning, workshop di allineamento strategico. Per team che devono coordinarsi attraverso culture, lingue e discipline diverse.</p>
+    </div>
+
+    <div style="padding: 2.5rem;">
+      <p style="font-family:'Space Mono',monospace; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:.6rem;">Ricerca & Scienza</p>
+      <h3 style="font-family:'DM Serif Display',serif; font-size:1.3rem; color:var(--navy); margin-bottom:.8rem; line-height:1.2;">AI & Open Science</h3>
+      <p style="font-size:.9rem; color:#555; line-height:1.75;">Sessioni per ricercatori, università e centri di innovazione sull'intersezione tra intelligenza artificiale e pratiche di scienza aperta. Come l'AI cambia la produzione, la valutazione e la valorizzazione della conoscenza.</p>
+    </div>
+
+  </div>
+  <div style="margin-top: 3rem; padding: 2rem; background: var(--navy); border-radius: 2px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+    <p style="font-family:'DM Serif Display',serif; font-size:1.1rem; color:white; line-height:1.4;">Organizzi eventi, conferenze o sessioni formative?<br><em style="color:var(--accent); font-style:italic;">I workshop sono disponibili su richiesta.</em></p>
+    <a href="mailto:giusygrieco@proton.me" style="font-family:'Space Mono',monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:white; text-decoration:none; border:1px solid rgba(255,255,255,0.3); padding:.8rem 1.5rem; transition:all .2s;">↗ Scrivimi</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name">Giusy Grieco</span>
+  <div class="footer-links">
+    <a href="mailto:giusygrieco@proton.me">Email</a>
+    <a href="https://zenodo.org/records/17909495" target="_blank">Zenodo</a>
+    <a href="https://kaleidosproject.eu" target="_blank">KALEIDOS</a>
+    <a href="https://www.linkedin.com/in/giusy-grieco-101612202/" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+// Scroll-triggered reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, (entry.target.dataset.delay || 0) * 1000);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.manifesto-block, .project-card, .award-card, .cv-row').forEach((el, i) => {
+  el.dataset.delay = (i % 4) * 0.1;
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
