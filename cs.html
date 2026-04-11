@@ -82,6 +82,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 /* GALLERY */
 .gallery-btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'Courier Prime',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:none;border:1px solid var(--rule);padding:.5rem 1rem;cursor:pointer;margin-top:1rem;transition:all .2s}
 .gallery-btn:hover{border-color:var(--accent);color:var(--accent)}
+.photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:1.5rem}
+.photo-strip img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border:1px solid var(--rule);cursor:pointer;transition:opacity .2s,border-color .2s;filter:grayscale(20%)}
+.photo-strip img:hover{opacity:.85;border-color:var(--accent);filter:grayscale(0%)}
 .gallery-overlay{display:none;position:fixed;inset:0;background:rgba(248,245,240,0.97);z-index:200;padding:5rem 3rem 3rem;overflow-y:auto}
 .gallery-overlay.open{display:block}
 .gallery-close{position:fixed;top:1.5rem;right:2rem;font-family:'Courier Prime',monospace;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;transition:color .2s}
@@ -199,6 +202,11 @@ footer{padding:2.5rem 3rem;display:flex;justify-content:space-between;align-item
       </button>
     </div>
     <div class="project-right">
+      <div class="photo-strip">
+        <img src="https://raw.githubusercontent.com/teragramgius/ggriecoweb/main/source/1732281028821.jpg" alt="KALEIDOS — Transforming Research Into Impact" onclick="openGallery()" title="Clicca per aprire la galleria">
+        <img src="https://raw.githubusercontent.com/teragramgius/ggriecoweb/main/source/1758639334676.jpg" alt="KALEIDOS — Lorraine workshop" onclick="openGallery()" title="Clicca per aprire la galleria">
+        <img src="https://raw.githubusercontent.com/teragramgius/ggriecoweb/main/source/1758808135476.jpg" alt="KALEIDOS — Paris team" onclick="openGallery()" title="Clicca per aprire la galleria">
+      </div>
       <div class="video-wrap">
         <iframe src="https://www.youtube.com/embed/0U72u8hUrNc?si=ln-YDDy_8uyXTCVE&amp;start=89" title="Giusy Grieco KALEIDOS Project"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
