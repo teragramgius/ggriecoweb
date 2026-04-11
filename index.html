@@ -576,6 +576,8 @@
       <button class="lang-btn active" id="btn-it" onclick="setLang('it')">IT</button>
       <span class="lang-sep">/</span>
       <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      <span class="lang-sep">/</span>
+      <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
     </div>
     <a href="https://github.com/teragramgius" target="_blank" class="gh-link" title="GitHub">
       <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -606,7 +608,7 @@
     <p class="video-label">Presentazione</p>
     <div class="video-wrap">
       <iframe
-        src="https://www.youtube.com/embed/0U72u8hUrNc?si=ln-YDDy_8uyXTCVE&amp;start=89"
+        src="https://www.youtube.com/embed/0U72u8hUrNc"
         title="Giusy Grieco — Presentazione"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
@@ -694,11 +696,11 @@
       </div>
     </div>
 
-    <!-- EU INNOVATION -->
+    <!-- KCITY -->
     <div class="project-card">
       <div class="project-left">
         <p class="project-tag">EU Innovation · Policy</p>
-        <h3 class="project-name">Horizon EU Proposals<br>Consulting</h3>
+        <h3 class="project-name">KCity — Horizon EU Proposals</h3>
         <p class="project-period">2023 – 2024 — Milano</p>
       </div>
       <div class="project-right">
@@ -952,7 +954,7 @@
 
   </div>
   <div style="margin-top: 3rem; padding: 2rem; background: var(--navy); border-radius: 2px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
-    <p style="font-family:'DM Serif Display',serif; font-size:1.1rem; color:white; line-height:1.4;">Organizzi eventi, conferenze o sessioni formative?<br><em style="color:var(--accent); font-style:italic;">I workshop sono disponibili su richiesta.</em></p>
+    <p style="font-family:'DM Serif Display',serif; font-size:1.1rem; color:white; line-height:1.4;"><span id="workshop-cta">Organizzi eventi, conferenze o sessioni formative?</span><br><em id="workshop-sub" style="color:var(--accent); font-style:italic;">I workshop sono disponibili su richiesta.</em></p>
     <a href="mailto:giusygrieco@proton.me" style="font-family:'Space Mono',monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:white; text-decoration:none; border:1px solid rgba(255,255,255,0.3); padding:.8rem 1.5rem; transition:all .2s;">↗ Scrivimi</a>
   </div>
 </section>
@@ -966,6 +968,7 @@
     <a href="https://kaleidosproject.eu" target="_blank">KALEIDOS</a>
     <a href="https://linkedin.com/in/giusygrieco" target="_blank">LinkedIn</a>
     <a href="https://github.com/teragramgius" target="_blank">GitHub</a>
+    <a href="cs.html">Science Communication</a>
   </div>
 </footer>
 
@@ -987,6 +990,14 @@ const i18n = {
     workshop_cta: 'Planning an event, conference, or training session?',
     workshop_sub: 'Workshops available on request.',
     workshop_btn: '↗ Get in touch',
+  },
+  es: {
+    nav: { manifesto:'Visión', projects:'Proyectos', awards:'Reconocimientos', cv:'Experiencia', workshops:'Talleres', contact:'Contacto' },
+    hero_bio: 'Construyo puentes entre la frontera tecnológica y las personas que necesitan usarla. Traduzco tendencias de IA en arquitecturas de proyecto financiables, coordino consorcios europeos y guío equipos en la adopción de herramientas inteligentes — con rigor metodológico y atención al impacto real.',
+    sections: { s01:'Cómo trabajo', s02:'Proyectos', s03:'Reconocimientos', s04:'Experiencia', s05:'Competencias', s06:'Certificaciones', s07:'Talleres y Facilitación' },
+    workshop_cta: '¿Organizas eventos, conferencias o sesiones formativas?',
+    workshop_sub: 'Los talleres están disponibles bajo demanda.',
+    workshop_btn: '↗ Escríbeme',
   }
 };
 
@@ -995,6 +1006,7 @@ function setLang(lang) {
   // buttons
   document.getElementById('btn-it').classList.toggle('active', lang === 'it');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
   document.documentElement.lang = lang;
   // nav links
   const navLinks = document.querySelectorAll('#nav-links a');
@@ -1007,6 +1019,11 @@ function setLang(lang) {
   const titles = document.querySelectorAll('.section-title');
   const skeys = ['s01','s02','s03','s04','s05','s06','s07'];
   titles.forEach((el, i) => { if (skeys[i] && t.sections[skeys[i]]) el.textContent = t.sections[skeys[i]]; });
+  // workshop CTA
+  const cta = document.getElementById('workshop-cta');
+  const sub = document.getElementById('workshop-sub');
+  if (cta) cta.textContent = t.workshop_cta;
+  if (sub) sub.textContent = t.workshop_sub;
 }
 
 // Scroll-triggered reveal
