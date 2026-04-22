@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Giusy Grieco — Application Portfolio · EUA Policy & Project Officer</title>
+<meta name="description" content="Application portfolio of Giusy Grieco for the EUA Policy & Project Officer position — Governance, Funding and Public Policy Development Unit." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1F4E79;
+    --navy-dark: #133653;
+    --navy-light: #3A6FA0;
+    --ocra: #9B7E46;
+    --ocra-light: #B69863;
+    --bg: #FAFAF7;
+    --bg-alt: #F2EFE8;
+    --ink: #1A1A1A;
+    --ink-soft: #3D3D3D;
+    --muted: #6B6B6B;
+    --rule: #D9D4C7;
+    --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --sans: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --measure: 68ch;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--bg);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ============ LAYOUT ============ */
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .narrow {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  section {
+    padding: 96px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  section:first-of-type { border-top: none; }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4 {
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--navy-dark);
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.6em;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 400;
+    margin-bottom: 1.2em;
+  }
+
+  h3 {
+    font-size: 1.35rem;
+    font-weight: 500;
+    margin-bottom: 0.4em;
+    color: var(--navy);
+  }
+
+  h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-family: var(--sans);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ocra);
+    margin-bottom: 1em;
+  }
+
+  p { margin-bottom: 1em; max-width: var(--measure); }
+  p:last-child { margin-bottom: 0; }
+
+  a {
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(31, 78, 121, 0.3);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  a:hover { color: var(--navy-dark); border-bottom-color: var(--navy-dark); }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ocra);
+    margin-bottom: 1.5em;
+    display: block;
+  }
+
+  .lead {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    font-style: italic;
+    max-width: 56ch;
+  }
+
+  /* ============ HEADER NAV ============ */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 250, 247, 0.92);
+    backdrop-filter: saturate(180%) blur(8px);
+    -webkit-backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 32px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .nav-brand {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--navy-dark);
+    border: none;
+  }
+
+  .nav-brand span {
+    color: var(--muted);
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    border: none;
+    font-weight: 400;
+  }
+  .nav-links a:hover { color: var(--navy); }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    padding: 120px 0 80px;
+    border-top: none;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .hero-meta dt {
+    font-weight: 600;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    margin-bottom: 4px;
+  }
+
+  .hero-meta dd {
+    color: var(--ink);
+    font-size: 0.95rem;
+  }
+
+  .hero-meta > div { min-width: 140px; }
+
+  /* ============ ROLE-FIT GRID ============ */
+  .fit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+    margin-top: 48px;
+  }
+
+  @media (max-width: 720px) {
+    .fit-grid { grid-template-columns: 1fr; }
+  }
+
+  .fit-cell {
+    padding: 32px 28px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg);
+    position: relative;
+  }
+
+  .fit-cell .fit-number {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ocra);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .fit-cell h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--navy-dark);
+  }
+
+  .fit-cell p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* ============ EVIDENCE CARDS ============ */
+  .evidence-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .evidence-item {
+    padding: 36px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .evidence-item:first-child { border-top: 1px solid var(--rule); }
+
+  .evidence-item:last-child { border-bottom: none; }
+
+  .evidence-meta {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding-top: 4px;
+  }
+
+  .evidence-meta .year {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--navy);
+    text-transform: none;
+    letter-spacing: -0.01em;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .evidence-body h3 {
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+  }
+
+  .evidence-body .role {
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    color: var(--ocra);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+
+  .evidence-body p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  .evidence-links {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.85rem;
+  }
+
+  .evidence-links a {
+    font-family: var(--sans);
+    letter-spacing: 0.02em;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  .tag {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--navy);
+    border: 1px solid var(--rule);
+    padding: 3px 9px;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 700px) {
+    .evidence-item {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+  }
+
+  /* ============ FEATURED DELIVERABLE ============ */
+  .featured {
+    background: var(--bg-alt);
+    padding: 64px 48px;
+    margin: 48px 0;
+    border-left: 3px solid var(--ocra);
+    position: relative;
+  }
+
+  .featured::before {
+    content: "Featured deliverable";
+    position: absolute;
+    top: -10px;
+    left: 48px;
+    background: var(--bg-alt);
+    padding: 0 14px;
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ocra);
+  }
+
+  .featured h3 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--navy-dark);
+    margin-bottom: 10px;
+  }
+
+  .featured .doi {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .featured p {
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+
+  /* ============ LIST STYLES ============ */
+  .plain-list {
+    list-style: none;
+  }
+
+  .plain-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+  }
+
+  .plain-list li:last-child { border-bottom: none; }
+
+  .plain-list .item-label {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .plain-list .item-detail {
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-style: italic;
+  }
+
+  /* ============ TWO-COL ============ */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+
+  @media (max-width: 720px) {
+    .two-col { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ============ VIDEO SECTION ============ */
+  .video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--navy-dark);
+    border: 1px solid var(--rule);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(19, 54, 83, 0.08);
+    margin-bottom: 16px;
+  }
+
+  .video-frame iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+
+  .video-caption {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: baseline;
+  }
+
+  .video-caption a {
+    font-style: normal;
+    letter-spacing: 0.02em;
+  }
+
+  /* ============ CTA / FOOTER ============ */
+  .contact-block {
+    background: var(--navy-dark);
+    color: var(--bg);
+    padding: 80px 0;
+    margin-top: 64px;
+  }
+
+  .contact-block h2 {
+    color: var(--bg);
+    font-weight: 300;
+  }
+
+  .contact-block .eyebrow { color: var(--ocra-light); }
+
+  .contact-block p { color: rgba(250, 250, 247, 0.8); }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(250, 250, 247, 0.15);
+  }
+
+  .contact-links a {
+    color: var(--bg);
+    border-bottom-color: rgba(250, 250, 247, 0.3);
+    font-family: var(--sans);
+  }
+
+  .contact-links a:hover {
+    border-bottom-color: var(--ocra-light);
+    color: var(--ocra-light);
+  }
+
+  footer {
+    padding: 36px 0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-top: 1px solid var(--rule);
+  }
+
+  footer p { max-width: none; margin: 0 auto; }
+
+  /* ============ QUIET REVEAL ============ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============ DIVIDING RULE ============ */
+  .rule-ornament {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 2.5em 0;
+    color: var(--ocra);
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  .rule-ornament::before,
+  .rule-ornament::after {
+    content: "";
+    flex: 0 0 40px;
+    height: 1px;
+    background: var(--ocra);
+  }
+
+  .rule-ornament::after { flex: 1; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a href="#top" class="nav-brand">Giusy Grieco <span>— EUA application</span></a>
+    <ul class="nav-links">
+      <li><a href="#fit">Role fit</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#evidence">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Application · Policy & Project Officer · GAF Unit</span>
+        <h1>A policy and project practitioner working at the intersection of European research funding, governance and knowledge valorisation.</h1>
+        <p class="lead">This portfolio is a focused companion to my application for the European University Association. It documents what I have built, coordinated and written — mapped to the four responsibilities of the role.</p>
+
+        <dl class="hero-meta">
+          <div>
+            <dt>Based in</dt>
+            <dd>Bologna, IT <span style="color: var(--muted);">— open to relocate to Brussels</span></dd>
+          </div>
+          <div>
+            <dt>Working languages</dt>
+            <dd>EN · FR · DE · IT · ES · PL</dd>
+          </div>
+          <div>
+            <dt>Current role</dt>
+            <dd>Policy &amp; EU-project consultant · Private consulting</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ROLE FIT ===================== -->
+  <section id="fit" class="reveal">
+    <div class="container">
+      <div class="rule-ornament">§ I &mdash; How this profile maps to the role</div>
+      <h2>Four responsibilities, four bodies of evidence.</h2>
+      <p style="margin-bottom: 2em; max-width: 60ch;">The Policy & Project Officer role is structured around four areas of work. Rather than describing these in the abstract, each cell below points to concrete work I have done in that exact mode.</p>
+
+      <div class="fit-grid">
+        <div class="fit-cell">
+          <span class="fit-number">01</span>
+          <h3>Consultation &amp; member engagement</h3>
+          <p>Coordinated multi-country consultations for the KALEIDOS D4.1 deliverable: survey design, semi-structured interviews, meeting logistics, interview summaries and analytical notes feeding directly into EU policy guidelines.</p>
+        </div>
+        <div class="fit-cell">
+          <span class="fit-number">02</span>
+          <h3>Project work</h3>
+          <p>Three Horizon Europe projects (KALEIDOS, IN-HABIT, PERCEIVE). Data collection and analysis, deliverable drafting, event organisation, and — through ongoing private consulting — support to proposal development, reporting and financial management under Horizon Europe and PNRR.</p>
+        </div>
+        <div class="fit-cell">
+          <span class="fit-number">03</span>
+          <h3>Policy work</h3>
+          <p>Monitoring of EU funding frameworks, digital and research policy, state aid and the EU AI Act. Drafting of position-paper inputs, briefings and analytical summaries for academic, institutional and client audiences.</p>
+        </div>
+        <div class="fit-cell">
+          <span class="fit-number">04</span>
+          <h3>Representation &amp; liaison</h3>
+          <p>Presentation of project findings to consortium and academic audiences; liaison with partners and funders across institutional cultures; multilingual dissemination content across six working languages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== APPROACH ===================== -->
+  <section id="approach" class="reveal">
+    <div class="narrow">
+      <div class="rule-ornament">§ II &mdash; How I work</div>
+      <h2>A short note on method.</h2>
+      <p>Much of what the GAF Unit produces — briefing notes, analytical summaries, survey-based reports, position papers — lives in the space between institutional language, empirical evidence and practical recommendations. It requires someone who can sit with complexity long enough to structure it, and then write it plainly.</p>
+      <p>My own approach rests on three simple commitments: <em>take the source material seriously</em> (read the regulation, the data, the partner's input before paraphrasing); <em>design for the reader who will actually use the text</em> (a ministry official, a rector, a project officer — not a generic audience); and <em>keep the scaffolding visible</em> (structure, citations, method notes), so that the work can be extended, reviewed, or challenged by others.</p>
+      <p>It is the approach I used for KALEIDOS D4.1, and the one I would bring to EUA's funding and governance work.</p>
+    </div>
+  </section>
+
+  <!-- ===================== CREDENTIALS ===================== -->
+  <section class="reveal">
+    <div class="container">
+      <div class="rule-ornament">§ III &mdash; Further credentials</div>
+      <div class="two-col">
+        <div>
+          <h4>Additional engagements</h4>
+          <ul class="plain-list">
+            <li><span class="item-label">Peer Reviewer</span><span class="item-detail">Academy of Management · 2025</span></li>
+            <li><span class="item-label">Tech Steward</span><span class="item-detail">Processing Foundation · 2023–24</span></li>
+            <li><span class="item-label">SEO Specialist</span><span class="item-detail">Code for All · 2023–24</span></li>
+            <li><span class="item-label">Open Data Contributor</span><span class="item-detail">Open Data Institute</span></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Recognition &amp; certifications</h4>
+          <ul class="plain-list">
+            <li><span class="item-label">Winner, Poetica call</span><span class="item-detail">Fondazione per la Generatività Sociale</span></li>
+            <li><span class="item-label">OpenAIRE Train-the-Trainer</span><span class="item-detail">Open Science &amp; EU research infrastructures</span></li>
+            <li><span class="item-label">All Tech Is Human</span><span class="item-detail">Responsible-technology community</span></li>
+            <li><span class="item-label">MA, Digital Humanities</span><span class="item-detail">Università di Bologna</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VIDEO INTRODUCTION ===================== -->
+  <section id="video" class="reveal">
+    <div class="narrow">
+      <div class="rule-ornament">§ IV &mdash; A short introduction</div>
+      <h2>Two minutes, in my own voice.</h2>
+      <p style="margin-bottom: 2em;">A brief spoken introduction to the work behind this application — the ethos of KALEIDOS D4.1, why I want to join the GAF Unit, and what I can bring in the first six months of the role.</p>
+
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube.com/embed/[YOUTUBE_VIDEO_ID]"
+          title="Giusy Grieco — Introduction for the EUA Policy &amp; Project Officer application"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <p class="video-caption">Recorded in English, 2 min. <a href="https://www.youtube.com/watch?v=[YOUTUBE_VIDEO_ID]" target="_blank" rel="noopener">Open on YouTube →</a></p>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURED DELIVERABLE ===================== -->
+  <section id="evidence" class="reveal">
+    <div class="container">
+      <div class="rule-ornament">§ V &mdash; Selected evidence</div>
+      <h2>The work itself, with links.</h2>
+
+      <div class="featured">
+        <h3>KALEIDOS D4.1 &mdash; Policy Guidelines on Knowledge Valorisation</h3>
+        <span class="doi">DOI: 10.5281/zenodo.17909495</span>
+        <p>Lead author of the public Horizon Europe deliverable that translates consortium findings into policy recommendations aligned with the European Knowledge Valorisation agenda. The work included consultation design, survey implementation across project partners, qualitative and quantitative analysis, and drafting of the final text presented at consortium meetings.</p>
+        <p><strong>Why it matters for EUA:</strong> this is the closest analogue in my existing work to the kind of consultation-to-publication pipeline the GAF Unit produces for its membership.</p>
+        <div class="evidence-links">
+          <a href="https://doi.org/10.5281/zenodo.17909495" target="_blank" rel="noopener">Read the deliverable →</a>
+        </div>
+      </div>
+
+      <div class="evidence-list">
+
+        <article class="evidence-item">
+          <div class="evidence-meta">
+            <span class="year">2025 —</span>
+            Project development
+          </div>
+          <div class="evidence-body">
+            <h3>Horizon Europe &amp; PNRR proposal work</h3>
+            <div class="role">Policy &amp; EU-project consultant · Private consulting</div>
+            <p>Contribution to project proposal development and implementation: data collection, stakeholder mapping, event organisation, reporting and financial management support. Monitoring of regulatory frameworks (EU AI Act, digital and research policy, state aid) translated into briefings and analytical notes for internal teams and clients.</p>
+            <div class="tag-list">
+              <span class="tag">Horizon Europe</span>
+              <span class="tag">PNRR</span>
+              <span class="tag">Regulatory analysis</span>
+              <span class="tag">Financial management</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="evidence-item">
+          <div class="evidence-meta">
+            <span class="year">2023–24</span>
+            Co-design &amp; knowledge organisation
+          </div>
+          <div class="evidence-body">
+            <h3>IN-HABIT &mdash; WP5 information architecture</h3>
+            <div class="role">Information Architect · Tesserae, Berlin</div>
+            <p>Supported consultation and co-design activities with municipal partners and citizen stakeholders across four European pilot cities. Designed information architectures to structure consortium inputs and contributed to reporting, deliverable drafting and multilingual dissemination materials.</p>
+            <div class="tag-list">
+              <span class="tag">Horizon 2020</span>
+              <span class="tag">Co-design</span>
+              <span class="tag">Multilingual dissemination</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="evidence-item">
+          <div class="evidence-meta">
+            <span class="year">2022–23</span>
+            Policy research
+          </div>
+          <div class="evidence-body">
+            <h3>PERCEIVE &mdash; Emerging-technology governance</h3>
+            <div class="role">Research Assistant · University of Lucerne</div>
+            <p>Policy-oriented research applying Three Horizons foresight methodology. Drafted position-paper inputs, background materials and briefing notes for academic and institutional dissemination, and supported the preparation of online and in-person events.</p>
+            <div class="tag-list">
+              <span class="tag">Horizon 2020</span>
+              <span class="tag">Foresight</span>
+              <span class="tag">Position papers</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="evidence-item">
+          <div class="evidence-meta">
+            <span class="year">2021–22</span>
+            Institutional communication
+          </div>
+          <div class="evidence-body">
+            <h3>LaScuolaOpenSource &mdash; Communication strategy</h3>
+            <div class="role">Communication Specialist · Bari</div>
+            <p>Developed communication strategy, editorial content and institutional materials for a cultural centre at the intersection of open-source technology, education and civic participation. Coordinated outreach to partners, funders and audiences through briefings, event materials and multilingual dissemination content.</p>
+            <div class="tag-list">
+              <span class="tag">Institutional comms</span>
+              <span class="tag">Open knowledge</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== CONTACT ===================== -->
+<div class="contact-block" id="contact">
+  <div class="narrow">
+    <span class="eyebrow">For the recruitment team</span>
+    <h2>Available for interview, and to relocate.</h2>
+    <p>This page accompanies my CV and motivation letter submitted to <a href="mailto:recruitment@eua.eu" style="color: var(--ocra-light); border-bottom-color: rgba(182, 152, 99, 0.4);">recruitment@eua.eu</a>. I'm happy to provide further references, supplementary work samples, or a short written task on request.</p>
+
+    <div class="contact-links">
+      <a href="mailto:giusygrieco@proton.me">Email</a>
+      <a href="https://www.linkedin.com/in/giusy-grieco-101612202/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://teragramgius.github.io/ggriecoweb/" target="_blank" rel="noopener">Main portfolio</a>
+      <a href="https://doi.org/10.5281/zenodo.17909495" target="_blank" rel="noopener">KALEIDOS D4.1</a>
+      <a href="www.youtube.com/watch?v=0U72u8hUrNc" target="_blank" rel="noopener">Video intro</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>Giusy Grieco · Application materials for the EUA Policy &amp; Project Officer position · 2026</p>
+  </div>
+</footer>
+
+<script>
+  // Quiet, single-pass reveal on scroll — no ongoing animations.
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
